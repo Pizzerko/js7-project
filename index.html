@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="connect4.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        #board{
+            height:500px;
+            width:600px;
+            background-color: blue;
+            border: 5px solid black;
+            margin: auto;
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .tile{
+            height: 60px;
+            width: 65px;
+            background-color: aliceblue;
+            border-radius: 50%;
+            margin:5px;
+            border: 5px solid black;
+        }
+        .red-chip {
+            background-color: red;
+        }
+        .yellow-chip {
+            background-color: yellow;;
+        } 
+        p{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Connect 4</h1>
+    <p>Click the column that you want to place your chip in!</p>
+    <h2 id="win"></h2>
+    <div id="board"></div>
+</body>
+</html>
