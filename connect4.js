@@ -25,13 +25,13 @@ function placePiece() {
         return;
     }
     board[row][column] = current;
-    let tile = document.getElementById(row.toString() + "-" + column.toString());
+    let piece = document.getElementById(row.toString() + "-" + column.toString());
     if(current == playerRed) {
-        tile.classList.add("red-chip");
+        piece.classList.add("r-chip");
         current = playerYell;
     }
     else{
-        tile.classList.add("yellow-chip");
+        piece.classList.add("y-chip");
         current = playerRed;
     }
     row -= 1;
@@ -49,11 +49,11 @@ function setGame(){
 
             row.push(' ');
 
-            let tile = document.createElement("div");
-            tile.id = r.toString() + "-" + c.toString();
-            tile.classList.add("tile");
-            tile.addEventListener("click", placePiece)
-            document.getElementById("board").append(tile);
+            let piece = document.createElement("div");
+            piece.id = r.toString() + "-" + c.toString();
+            piece.classList.add("piece");
+            piece.addEventListener("click", placePiece)
+            document.getElementById("board").append(piece);
         }
         board.push(row);
     }
@@ -61,8 +61,8 @@ function setGame(){
 
 function setWin(r, c){
     let winner = document.getElementById("win");
-    if(board[r][c] == playerRed) winner.innerText = "Red Wins!";
-    else{
+    if(board[r][c] == playerRed) {winner.innerText = "Red Wins!";}
+    if(board[r][c] == playerYell){
         winner.innertext = "Yellow Wins!"
     }
     gameOver=true;
@@ -100,7 +100,7 @@ function cWin(){
         }
     }
     for(let c = 0; c < columns; c++){
-        for(let r = 0; r < rows; r++){
+        for(let r = 0; r < rows-3; r++){
             if(board[r][c] != ' '){
                 if(board[r][c] == board[r+1][c] && board[r+1][c] == board[r+2][c] && board[r+2][c] == board[r+3][c]){
                     setWin(r, c);
